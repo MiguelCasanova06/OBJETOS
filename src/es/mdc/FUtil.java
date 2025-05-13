@@ -3,12 +3,12 @@ import java.io.File;
 
 public class FUtil {
 
-	public static boolean existe(String filename) {
-		File file = new File(filename);
-		if (file.exists()) {
-		return true;
-		}
-		return false;
-		}
+    public static boolean existe(String filename) {
+        if (filename == null || filename.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre del archivo está vacío o contiene solo espacios.");
+        }
 
+        File file = new File(filename);
+        return file.exists();
+    }
 }

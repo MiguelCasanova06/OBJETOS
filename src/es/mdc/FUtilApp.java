@@ -3,22 +3,25 @@ package es.mdc;
 public class FUtilApp {
 
 	public static void main(String[] args) {
+	    String[] archivos = {
+	            "documento.txt",
+	            "imagen.jpg",
+	            "noexiste.txt",
+	            "" // Cadena vacía para probar la excepción
+	        };
 
-		  String[] archivos = {
-		            "documento.txt",
-		            "imagen.jpg",
-		            "noexiste.txt"
-		        };
-
-		   for (String a : archivos) {
-	         boolean existe = FUtil.existe(a);
-	         if (existe) {
-	        	 System.out.println("El archivo " + a + " existe.");
-		     } else {
-		         System.out.println("El archivo " + a + " no existe.");
-		     }
-		   
-		   }
+	        for (String archivo : archivos) {
+	            try {
+	                boolean existe = FUtil.existe(archivo);
+	                if (existe) {
+	                    System.out.println("El archivo " + archivo + " existe.");
+	                } else {
+	                    System.out.println("El archivo " + archivo + " no existe.");
+	                }
+	            } catch (IllegalArgumentException e) {
+	                System.out.println("Error al comprobar archivo: \"" + archivo + "\" -> " + e);
+	            }
+	        }
 	}
 
 }
