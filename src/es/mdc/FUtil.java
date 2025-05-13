@@ -1,6 +1,8 @@
 package es.mdc;
 import java.io.File;
-
+/**
+ * @author Miguel
+ */
 public class FUtil {
 /**
  * Comprueba si un fichero existe o no
